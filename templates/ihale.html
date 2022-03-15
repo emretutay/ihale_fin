@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if ihale %}
+
+<h4>{{ihale.title}}</h4>
+<hr>
+Başlangıç Tarihi : {{ihale.start_date}}
+<hr>
+Bitiş Tarihi : {{ihale.end_date}}
+<hr>
+Açıklama: {{ihale.content}}
+<hr>
+Kategori : {{ihale.category}}
+<hr>
+Başlangıç Fiyatı : {{ihale.start_price}}
+<hr>
+Teklif Edilen Fiyat  : {{ihale.offered_price}}
+<hr>
+
+
+
+
+
+
+
+
+
+
+{% else %}
+
+<div class = "alert alert-warning">
+    Böyle bir ihale bulunmuyor
+</div>
+{% endif %}
+
+{% endblock body %}

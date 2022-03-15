@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h3>Kontrol Paneli</h3>
+<small>Hoşgeldin, {{session["username"]}}</small>
+<hr>
+
+<a href="/addihale" class = "btn btn-danger">İhale Ekle</a>
+
+{% if ihaleler %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Başlık</th>
+        <th scope="col">Başlangıç Tarihi</th>
+        <th scope="col">Bitiş Tarihi</th>
+        <th scope="col">Kategori</th>
+        <th scope="col">Başlangıç Fiyatı</th>
+        <th scope="col">Teklif Edilen Fiyat</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ihale in ihaleler %}
+      <tr>
+        <th scope="row">{{ihale.id}}</th>
+        <td><a href="/article/{{article.id}}">{{ihale.title}}</a></td>
+        <td>{{ihale.start_date}}</td>
+        <td>{{ihale.end_date}}</td>
+        <td>{{ihale.category}}</td>
+        <td>{{ihale.start_price}}</td>
+        <td>{{ihale.offered_price}}</td>
+        
+        
+        
+        <td><a href="/{{ihale.id}}/delete" class = "btn btn-danger">Sil</a></td>
+      </tr>
+      {% endfor %}
+      
+      
+    </tbody>
+  </table>  
+{% else %}
+<div class = "alert alert-danger">Henüz bir ihaleniz bulunmuyor</div>
+{% endif %}
+{% endblock body %}

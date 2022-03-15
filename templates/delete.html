@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h3></h3>
+<hr>
+
+{% from "includes/formhelpers.html" import render_field %}
+
+<form method = "post">
+        {{ render_field(form.delete,class = "form-control") }}
+        
+        
+        
+    <button type="submit" class="btn btn-danger">İhale Kaldır</button>
+</form>
+
+{% endblock body %}
